@@ -1,0 +1,52 @@
+{{#if children}}
+<a class="navPages-action custom-navPages-link custom-nav-title" href="{{url}}">{{name}}</a>
+<a class="navPages-action has-subMenu navPages-action--toplevel custom-nav-link-title" href="{{url}}" data-collapsible="navPages-{{id}}" data-collapsible-disabled-breakpoint="medium">
+	 <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg class="menu-plus mobileMenu-plus-minus"><use xlink:href="#icon-add" /></svg></i>
+	 <i class="icon navPages-action-moreIcon" aria-hidden="true"><svg class="menu-minus mobileMenu-plus-minus"><use xlink:href="#icon-remove" /></svg></i>
+</a>
+
+<div class="navPage-subMenu" id="navPages-{{id}}" aria-hidden="true" tabindex="-1">
+	<ul class="navPage-subMenu-list">
+		<li class="navPage-subMenu-item">
+			<a class="navPage-subMenu-action navPages-action" href="{{url}}">{{lang 'category.view_all.name' category=name}}</a>
+		</li>
+		
+		{{#each children}}
+			<li class="navPage-subMenu-item">
+				{{#if children}}
+					<a class="navPages-subMenu-action navPages-subMenu-child navPages-subMenu-child-title" href="{{url}}">{{name}}</a>
+					<a class="navPage-subMenu-action navPages-action has-subMenu navPages-subMenu-child navPages-subMenu-child-item" href="{{url}}" data-collapsible="navPages-{{id}}" data-collapsible-disabled-breakpoint="medium" data-collapsible-disabled-state="open" data-collapsible-enabled-state="closed">
+						<i class="icon navPages-action-moreIcon custom-subMenu-moreIcon" aria-hidden="true"><svg class="subMenu-plus"><use  xlink:href="#icon-add" /></svg></i>
+						<i class="icon navPages-action-moreIcon custom-subMenu-moreIcon" aria-hidden="true"><svg class="subMenu-minus"><use xlink:href="#icon-remove" /></svg></i>
+					</a>
+					<ul class="navPage-childList" id="navPages-{{id}}">
+						{{#each children}}
+						<li class="navPage-childList-item">
+							<a class="navPage-childList-action navPages-action navPages-subMenu-child" href="{{url}}">{{name}}</a>
+						</li>
+						{{/each}}
+					</ul>
+				{{else}}
+					<a class="navPage-subMenu-action navPages-action navPages-subMenu-child" href="{{url}}">{{name}}</a>
+					
+				{{/if}}
+			</li>
+			
+		{{/each}}
+		<div class="mega-menu__action">
+			{{#if (lang (concat (concat 'mega_menu.menu_cat_'@index)'.image_src')) '===' ' '}}
+				<img class="mega-menu__image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="{{lang (concat (concat 'mega_menu.menu_cat_'@index)'.image_placeholder')}}" alt="{{lang (concat (concat 'mega_menu.menu_cat_'@index)'.text')}}">
+			{{else}}
+				<img class="mega-menu__image lazyload" src="{{cdn 'img/loading.svg'}}" data-src="{{cdn (lang (concat (concat 'mega_menu.menu_cat_'@index)'.image_src'))}}" alt="{{lang (concat (concat 'mega_menu.menu_cat_'@index)'.text')}}">
+			{{/if}}
+			<p class="mega-menu__text promo__container">
+				<p class="mega-menu__text--top promo__title">{{lang (concat (concat 'mega_menu.menu_cat_'@index)'.text_top')}}</p>
+				<p class="mega-menu__text--bottom promo__text">{{lang (concat (concat 'mega_menu.menu_cat_'@index)'.text_bottom')}}</p>
+				<a class="promo__link" href="{{lang (concat (concat 'mega_menu.menu_cat_'@index)'.url')}}">{{lang (concat (concat 'mega_menu.menu_cat_'@index)'.url-cta')}}</a>
+			</p>
+		</div>
+	</ul>
+</div>
+{{else}}
+<a class="navPages-action custom-navPages-link custom-nav-title" href="{{url}}">{{name}}</a>
+{{/if}}

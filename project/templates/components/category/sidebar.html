@@ -1,0 +1,31 @@
+<nav>
+    {{#if category.subcategories}}
+    <div class="sidebarBlock">
+        <h5 class="sidebarBlock-heading">{{category.name}}</h5>
+        <ul class="navList">
+            <div class="sidebar__sub-cats">
+                {{#each category.subcategories}}
+
+                <li class="navList-item">
+                    <a class="navList-action" href="{{url}}" alt="{{name}}" title="{{name}}">{{name}}</a>
+                </li>
+                {{/each}}
+            </div>
+        </ul>
+    </div>
+    {{/if}}
+
+    {{#if category.faceted_search_enabled}}
+    <div class="sidebar__filters">
+        {{> components/faceted-search/index category}}
+    </div>
+    {{else}}
+    {{> components/category/shop-by-price shop_by_price=category.shop_by_price category_url=category.url}}
+    {{/if}}
+    
+    <div class="random-cat-promo">
+        <a class="random-cat-link" href="">
+            <img class="lazyload random-cat-pic" src="{{cdn 'img/loading.svg'}}" alt="Category Promo">
+        </a>
+    </div>
+</nav>

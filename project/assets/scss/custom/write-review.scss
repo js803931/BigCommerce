@@ -1,0 +1,112 @@
+.write-review__container {
+    border: 2px solid #000000;
+}
+
+.write-review__container .form-label {
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 17px;
+    color: #000;
+}
+
+.write-review__container .modal-header-title {
+    color: #000000;
+    font-family: Lato;
+    font-size: 25px;
+    letter-spacing: 0.5px;
+    line-height: 30px;
+}
+
+.write-review__container .modal-header {
+    border: none;
+    padding-top: 50px;
+}
+
+.write-review__container .modal-body {
+    padding: 50px 100px;
+}
+
+.write-review__container .form-field--submit {
+    background: #000;
+    font-family: Lato;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1.1px;
+    line-height: 18px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.write-review__container .form-field--submit .button {
+    font-family: Lato;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1.1px;
+    line-height: 18px;
+    text-transform: uppercase;
+    padding: 10px 0px;
+    margin: 0;
+}
+
+.writeReview-productImage-container,
+.writeReview-productDetails {
+    display: none;
+}
+
+.writeReview-form {
+    
+    @include breakpoint("medium") {// 801px and up
+        width: 100%;
+    }
+}
+
+.modal-close span {
+    color: #000;
+    font-size: 50px;
+}
+
+
+.req-asterisk {
+    color: #FC353A;
+    font-size: 14px;
+}
+
+.star-wrapper {
+    display: flex;
+    align-items: baseline;
+}
+
+.review-submit {
+    width: 100%;
+    border-radius: 0px;
+    padding: 10px 0px;
+    background: #000;
+    font-family: Lato;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1.1px;
+    line-height: 18px;
+    text-transform: uppercase;
+
+
+    &:hover {
+        background: #000;
+    }
+}
+
+.productReview-title {
+    margin-bottom: 10px;
+}
+
+.write-review__container .form-input {
+    border: 1px solid #E6E6E6;
+}
+
+.productReview-body {
+    overflow-wrap: break-word;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}

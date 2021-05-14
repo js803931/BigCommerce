@@ -1,0 +1,181 @@
+.button {
+    background: none;
+    border: none;
+    padding: 0px 10px 0px 0px;
+
+}
+
+.button--primary {
+    background: none;
+}
+
+/* Button containers  */
+
+.header-icon-container {
+    display: flex;
+    justify-content: flex-end;
+    float: right;
+    margin-top: 10px;
+    margin-right: 15px;
+    align-items: center;
+
+    @media (min-width: 801px) {
+        margin-right: 15px;
+        position: relative;
+    }
+}
+
+.user-signin-container {
+    display: flex;
+    justify-content: center;
+
+    @include breakpoint("medium") {
+        // 801px and up
+        background-color: #F4F4F4;
+        height: 60px;
+        width: 60px;
+        margin-right: 5px;
+    }
+}
+
+.user-cart-container {
+    display: flex;
+    justify-content: center;
+
+    @include breakpoint("medium") {
+        // 801px and up
+        background: #F9F9F9;
+        height: 60px;
+        width: 60px;
+        margin-left: 5px;
+    }
+}
+
+/* User and Cart buttons  */
+
+.user-signin,
+.user-cart {
+    width: auto;
+    display: inline;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    left: 12px;
+    bottom: 6px;
+
+    @include breakpoint("medium") {
+        // 801px and up
+        top: 12px;
+        left: 5px;
+        float: right;
+    }
+}
+
+
+.user-icon,
+.shopping-icon {
+
+    @include breakpoint("medium") {
+        // 801px and up
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+}
+
+.account-text {
+    display: none;
+
+
+    @include breakpoint("medium") {
+        // 801px and up
+        display: block;
+        font-size: 12px;
+        margin-top: 8px;
+        line-height: 15px;
+    }
+}
+
+.navUser-item-cartLabel {
+    display: none;
+
+
+    @include breakpoint("medium") {
+        // 801px and up
+        display: inline;
+        color: #000;
+        font-size: 12px;
+        margin-top: 5px;
+        line-height: 15px;
+    }
+
+}
+
+.cart-count-container {
+    display: none;
+
+    @include breakpoint("medium") {
+        // 801px and up
+        margin-left: 25px;
+        margin-top: 4px;
+        display: inline-block;
+    }
+
+}
+
+.countPill {
+    display: none;
+
+    @include breakpoint("medium") {
+        // 801px and up
+        color: #000;
+        background: #FFF;
+        display: inline;
+        margin-left: -19px;
+    }
+
+}
+
+.dropdown-menu > *:first-child {
+    height: 0px;
+    width: 0px;
+}
+
+/* Cart dropdown */
+
+.previewCart-emptyBody {
+    padding: 0px;
+    width: auto;
+    height: auto;
+    text-align: center;
+    margin-left: -243px;
+    background: #FFF;
+    border: 1px solid #E6E6E6;
+}
+
+.invis-search-btn {
+
+    
+    @include breakpoint("medium") {
+        // 801px and up
+        height: 40px;
+        width: 30px;
+        margin: 0;
+        position: relative;
+        top: 15px;
+        right: 30px;
+        border-radius: 0;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background: black;
+            opacity: 0.5;
+        }
+    }
+}
+
+.quickSearch__inputs {
+    display: flex;
+
+}

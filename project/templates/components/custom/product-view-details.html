@@ -1,0 +1,92 @@
+<section class="productView-details">
+        <div class="productView-product">
+            {{product.detail_messages}}
+            <dl class="productView-info">
+                {{#if product.sku}}
+                    <dt class="productView-info-name">{{lang 'products.sku'}}</dt>
+                    <dd class="productView-info-value" data-product-sku>{{product.sku}}</dd>
+                {{/if}}
+                {{#if product.upc}}
+                    <dt class="productView-info-name">{{lang 'products.upc'}}</dt>
+                    <dd class="productView-info-value" data-product-upc>{{product.upc}}</dd>
+                {{/if}}
+                {{#if product.condition}}
+                    <dt class="productView-info-name">{{lang 'products.condition'}}</dt>
+                    <dd class="productView-info-value">{{product.condition}}</dd>
+                {{/if}}
+                {{#if product.availability}}
+                    <dt class="productView-info-name">{{lang 'products.availability'}}</dt>
+                    <dd class="productView-info-value">{{product.availability}}</dd>
+                {{/if}}
+                {{#all product.weight theme_settings.show_product_weight}}
+                    <dt class="productView-info-name">{{lang 'products.weight'}}</dt>
+                    <dd class="productView-info-value" data-product-weight>{{product.weight}}</dd>
+                {{/all}}
+                {{#all product.width product.height product.depth theme_settings.show_product_dimensions}}
+                    <dt class="productView-info-name">{{lang 'products.width'}}</dt>
+                    <dd class="productView-info-value" data-product-width>
+                        {{product.width}}
+                        {{#if settings.measurements.length '==' 'Centimeters'}}
+                        ({{lang 'products.measurement.metric'}})
+                        {{else}}
+                        ({{lang 'products.measurement.imperial'}})
+                        {{/if}}
+                    </dd>
+                    <dt class="productView-info-name">{{lang 'products.height'}}</dt>
+                    <dd class="productView-info-value" data-product-height>
+                        {{product.height}}
+                        {{#if settings.measurements.length '==' 'Centimeters'}}
+                        ({{lang 'products.measurement.metric'}})
+                        {{else}}
+                        ({{lang 'products.measurement.imperial'}})
+                        {{/if}}
+                    </dd>
+                    <dt class="productView-info-name">{{lang 'products.depth'}}</dt>
+                    <dd class="productView-info-value" data-product-depth>
+                        {{product.depth}}
+                        {{#if settings.measurements.length '==' 'Centimeters'}}
+                        ({{lang 'products.measurement.metric'}})
+                        {{else}}
+                        ({{lang 'products.measurement.imperial'}})
+                        {{/if}}
+                    </dd>
+                {{/all}}
+                {{#if product.min_purchase_quantity}}
+                    <dt class="productView-info-name">{{lang 'products.min_purchase_quantity'}}</dt>
+                    <dd class="productView-info-value">{{lang 'products.purchase_units' quantity=product.min_purchase_quantity}}</dd>
+                {{/if}}
+                {{#if product.max_purchase_quantity}}
+                    <dt class="productView-info-name">{{lang 'products.max_purchase_quantity'}}</dt>
+                    <dd class="productView-info-value">{{lang 'products.purchase_units' quantity=product.max_purchase_quantity}}</dd>
+                {{/if}}
+                {{#if product.gift_wrapping_available}}
+                    <dt class="productView-info-name">{{lang 'products.gift_wrapping'}}</dt>
+                    <dd class="productView-info-value">{{lang 'products.gift_wrapping_available'}}</dd>
+                {{/if}}
+                {{#if product.shipping}}
+                    {{#if product.shipping.calculated}}
+                        <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
+                        <dd class="productView-info-value">{{lang 'products.shipping_calculated'}}</dd>
+                    {{else}}
+                        {{#if product.shipping.price.value '===' 0}}
+                            <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
+                            <dd class="productView-info-value">{{lang 'products.shipping_free'}}</dd>
+                        {{else}}
+                            <dt class="productView-info-name">{{lang 'products.shipping'}}</dt>
+                            <dd class="productView-info-value">{{lang 'products.shipping_fixed' amount=product.shipping.price.formatted}}</dd>
+                        {{/if}}
+                    {{/if}}
+                {{/if}}
+
+                <div class="productView-info-bulkPricing">
+                    {{> components/products/bulk-discount-rates bulk_discount_rates=product.bulk_discount_rates}}
+                </div>
+                <!--
+                {{#each product.custom_fields}}
+                    <dt class="productView-info-name {{#replace ' ' (toLowerCase name)}}{{else}}{{toLowerCase name}}{{/replace}}">{{name}}:</dt>
+                    <dd class="productView-info-value {{#replace ' ' (toLowerCase name)}}{{else}}{{toLowerCase name}}{{/replace}}">{{{value}}}</dd>                
+                {{/each}}
+                -->
+            </dl>
+        </div>
+    </section>

@@ -1,0 +1,13 @@
+{{#if page_type '===' 'category'}}
+    category--{{category.id}}
+{{else if page_type '===' 'product'}}
+    product--{{product.id}}
+{{else if page_type '===' 'page'}}
+    page--{{#replace ' ' (toLowerCase page.title)}}{{else}}{{toLowerCase page.title}}{{/replace}}
+{{/if}}
+
+{{#if customer}}
+    logged-in
+{{else}}
+    not-logged-in
+{{/if}}

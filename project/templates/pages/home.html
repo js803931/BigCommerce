@@ -1,0 +1,209 @@
+---
+products:
+    new:
+        limit: {{theme_settings.homepage_new_products_count}}
+    featured:
+        limit: {{theme_settings.homepage_featured_products_count}}
+    top_sellers:
+        limit: {{theme_settings.homepage_top_products_count}}
+carousel: {{theme_settings.homepage_show_carousel}}
+blog:
+    recent_posts:
+        limit: 1    
+        summary: 300
+---
+{{#partial "hero"}}
+{{#if carousel}}
+{{> components/carousel}}
+{{/if}}
+{{{snippet 'home_content'}}}
+{{/partial}}
+
+{{#partial "page"}}
+
+{{#each shipping_messages}}
+{{> components/common/alert-info message}}
+{{/each}}
+
+
+<div class="main full">
+
+    <!-- {{#if products.featured}}
+    {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
+    {{/if}}
+
+    {{#if products.top_sellers}}
+    {{> components/products/top products=products.top_sellers columns=theme_settings.homepage_top_products_column_count}}
+    {{/if}}
+
+    {{#if products.new}}
+    {{> components/products/new products=products.new columns=theme_settings.homepage_new_products_column_count}}
+    {{/if}} -->
+
+    <div class="category-card__container flex-grid">
+
+        <div class="flex-four">
+            <div class="category-card flex-grid-item">
+                <div class="category-card__text-container">
+                    <h2 class="category-card__title">{{{lang 'category-cards.category-card-1.title'}}}</h2>
+                    <p class="category-card__text">
+                        {{{lang 'category-cards.category-card-1.text-1'}}}
+                        
+                    </p>
+                    <a href="{{lang 'category-cards.category-card-1.url'}}" class="category-card__shop-btn">{{lang 'category-cards.category-card-1.btn-text'}}</a>
+                </div>
+                <img class="lazyload category-card__image" data-src="{{cdn (lang 'category-cards.category-card-1.img-url')}}" src="{{cdn 'img/loading.svg'}}" alt="category card image">
+            </div>
+
+            <div class="category-card flex-grid-item">
+                <div class="category-card__text-container">
+                    <h2 class="category-card__title">{{{lang 'category-cards.category-card-2.title'}}}</h2>
+                    <p class="category-card__text">
+                            {{{lang 'category-cards.category-card-2.text-1'}}}
+                    </p>
+                    <a href="{{lang 'category-cards.category-card-2.url'}}" class="category-card__shop-btn">{{lang 'category-cards.category-card-2.btn-text'}}</a>
+                </div>
+                <img class="lazyload category-card__image" data-src="{{cdn (lang 'category-cards.category-card-2.img-url')}}" src="{{cdn 'img/loading.svg'}}" alt="category card image">
+            </div>
+
+            <div class="category-card flex-grid-item">
+                <div class="category-card__text-container">
+                    <h2 class="category-card__title">{{{lang 'category-cards.category-card-3.title'}}}</h2>
+                    <p class="category-card__text">
+                            {{{lang 'category-cards.category-card-3.text-1'}}}
+                    </p>
+                    <a href="{{lang 'category-cards.category-card-3.url'}}" class="category-card__shop-btn">{{lang 'category-cards.category-card-3.btn-text'}}</a>
+                </div>
+                <img class="lazyload category-card__image" data-src="{{cdn (lang 'category-cards.category-card-3.img-url')}}" src="{{cdn 'img/loading.svg'}}" alt="category card image">
+            </div>
+
+            <div class="category-card flex-grid-item">
+                <div class="category-card__text-container">
+                    <h2 class="category-card__title">
+                        {{{lang 'category-cards.category-card-4.title'}}}
+                    </h2>
+                    <p class="category-card__text">
+                            {{{lang 'category-cards.category-card-4.text-1'}}}
+                    </p>
+                    <a href="{{lang 'category-cards.category-card-4.url'}}" class="category-card__shop-btn">{{lang 'category-cards.category-card-4.btn-text'}}</a>
+                </div>
+                <img class="lazyload category-card__image" data-src="{{cdn (lang 'category-cards.category-card-4.img-url')}}" src="{{cdn 'img/loading.svg'}}" alt="category card image">
+            </div>
+        </div>
+
+        <div class="flex-last">
+            <div class="category-card category-card--last flex-grid-item-last">
+                <div class="category-card__text-container">
+                    <h2 class="category-card__title">{{{lang 'category-cards.category-card-5.title'}}}</h2>
+                    <p class="category-card__text">
+                            {{{lang 'category-cards.category-card-5.text-1'}}}
+                    </p>
+                    <a href="{{lang 'category-cards.category-card-5.url'}}" class="category-card__shop-btn">{{lang 'category-cards.category-card-5.btn-text'}}</a>
+                </div>
+                <img class="lazyload category-card__image category-card__image--last" data-src="{{cdn (lang 'category-cards.category-card-5.img-url')}}"
+                    src="{{cdn 'img/loading.svg'}}" alt="category card image">
+            </div>
+        </div>
+        
+    </div>
+
+    <div class="banners" data-banner-location="top">
+        <div class="banner NFRP-banner">
+            {{{limit banners.top 1}}}
+        </div>
+    </div>
+
+    <a href="#top" class="top-of-page">
+        <div class="icon icon--chevron-down top-of-page-icon">
+            <svg>
+                <use xlink:href="#icon-chevron-down"></use>
+            </svg>
+        </div>
+        TOP
+    </a>
+    
+
+    <div class="carousel__homepage">
+        <h2 class="page-heading">{{lang 'custom.carousel-homepage-title-1'}}</h2>
+        {{> components/products/carousel products=products.new columns=1}}
+    </div>
+
+    <div class="carousel__homepage">
+        <h2 class="page-heading">{{lang 'custom.carousel-homepage-title-2'}}</h2>
+        {{> components/products/carousel products=products.featured columns=1}}
+    </div>
+
+    <div class="blog__homepage">
+        {{#each blog.recent_posts}}
+            {{> components/blog/post post=this settings=../settings}}
+        {{/each}}
+    </div>
+
+    <div class="carousel__homepage carousel__homepage--testimonials">
+        <h2 class="page-heading">{{lang 'custom.customer-test-title'}}</h2>
+        <div class="star-img-container">
+            <img class="lazyload star-img" data-src="{{cdn 'webdav:/images//star_rating.png'}}" src="{{cdn 'img/loading.svg'}}" alt="star image">
+            <img class="lazyload star-img" data-src="{{cdn 'webdav:/images//star_rating.png'}}" src="{{cdn 'img/loading.svg'}}" alt="star image">
+            <img class="lazyload star-img" data-src="{{cdn 'webdav:/images//star_rating.png'}}" src="{{cdn 'img/loading.svg'}}" alt="star image">
+            <img class="lazyload star-img" data-src="{{cdn 'webdav:/images//star_rating.png'}}" src="{{cdn 'img/loading.svg'}}" alt="star image">
+            <img class="lazyload star-img" data-src="{{cdn 'webdav:/images//star_rating.png'}}" src="{{cdn 'img/loading.svg'}}" alt="star image">
+         </div>
+        <section class="newCarousel"
+    data-slick='{
+        "dots": true,
+        "infinite": false,
+        "mobileFirst": true,
+        "slidesToShow": 1,
+        "slidesToScroll": 1,
+        "responsive": [
+            {
+                "breakpoint": 1260,
+                "settings": {
+                    "slidesToShow": 1,
+                    "slidesToScroll": 1
+                }
+            },
+            {
+                "breakpoint": 800,
+                "settings": {
+                    "slidesToShow": 1,
+                    "slidesToScroll": 1
+                }
+            },
+            {
+                "breakpoint": 550,
+                "settings": {
+                    "slidesToShow": 1,
+                    "slidesToScroll": 1
+                }
+            }
+        ]
+    }'>
+        <div class="newCarousel-slide">
+            <a href="##">
+                <p>{{lang 'testimonials.testimonial-1'}}</p>
+            </a>
+        </div>
+        <div class="newCarousel-slide">
+            <a href="##">
+                <p>{{lang 'testimonials.testimonial-2'}}</p>
+            </a>
+        </div>
+        <div class="newCarousel-slide">
+            <a href="##">
+                <p>{{lang 'testimonials.testimonial-3'}}</p>
+            </a>
+        </div>
+    </section>
+
+    </div>
+
+    <div class="banners" data-banner-location="bottom">
+        <div class="banner NFRP-banner">
+            {{{limit banners.bottom 1}}}
+        </div>
+    </div>
+
+</div>
+{{/partial}}
+{{> layout/base}}

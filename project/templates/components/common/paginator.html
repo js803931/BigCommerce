@@ -1,0 +1,53 @@
+{{#unless links.length '==' 0}}
+    <div class="pagination {{#if top_pagination}}top-pagination{{/if}}">
+        <ul class="pagination-list">
+            {{#if previous}}
+                <li class="pagination-item pagination-item--previous">
+                    <a class="pagination-link" href="{{previous}}" {{#unless reload}}data-faceted-search-facet{{/unless}}>
+                        <i class="icon icon--play" aria-hidden="true">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-caret-left"></use>
+                            </svg>
+                        </i>
+                    </a>
+                </li>
+            {{/if}}
+            {{#each links}}
+                {{#if this.number '==' ../current}}
+                    <li class="pagination-item pagination-item--current">
+                        <a class="pagination-link" href="{{this.url}}" {{#unless reload}}data-faceted-search-facet{{/unless}}>{{this.number}}</a>
+                    </li>
+                {{/if}}
+                {{#if @last}}
+                    <li class="pagination-item pagination-item--last">
+                        <a class="pagination-link count {{../../products_on_page}}-{{../../product_count}}" href="{{this.url}}" {{#unless reload}}data-faceted-search-facet{{/unless}}
+                        data-page-number="
+                        {{#if ../../products_on_page '===' ../../product_count}}
+                            {{../../../page_total}}
+                        {{else}}
+                            {{../../../current}}
+                        {{/if}}">
+                        {{#if ../../products_on_page '===' ../../product_count}}
+                            / {{../../../page_total}}
+                        {{else}}
+                            / {{../../../current}}
+                        {{/if}}
+                        </a>
+                    </li>
+                {{/if}}
+            {{/each}}
+
+            {{#if next}}
+                <li class="pagination-item pagination-item--next">
+                    <a class="pagination-link" href="{{next}}" {{#unless reload}}data-faceted-search-facet{{/unless}}>
+                        <i class="icon icon--play" aria-hidden="true">
+                            <svg>
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-caret-right"></use>
+                            </svg>
+                        </i>
+                    </a>
+                </li>
+            {{/if}}
+        </ul>
+    </div>
+{{/unless}}

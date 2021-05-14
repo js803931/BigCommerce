@@ -1,0 +1,79 @@
+/* ==========================================================
+## These match up directly with the ITS Styleguide
+## Colors shouldn't need to be changed but the option 
+## is available to you.
+========================================================== */
+
+body {
+    color: stencilColor("body-font-color");
+    font-size:  stencilNumber("body-font-size");    
+}
+
+h1 {
+    color: stencilColor("h1-font-color");
+    font-size: stencilNumber("h1-font-size");
+}
+
+h2 {    
+    color: stencilColor("color-textBase");
+    font-size: stencilNumber("fontSize-h2");
+}
+
+h3 {
+    color: stencilColor("color-textBase");
+    font-size: stencilColor("fontSize-h3");
+}
+
+p {
+    color: stencilColor("color-textBase");
+    font-size:  stencilNumber("fontSize-root");    
+}
+
+a {
+    color: stencilColor("color-textLink");
+    font-size:  stencilNumber("fontSize-root");    
+    
+    &:hover {
+        color: stencilColor("color-textLink--hover");
+    }
+}
+
+.inverted {
+    color: stencilColor("color-textSecondary");
+}
+
+.productView-title {
+    color: stencilColor("color-textHeading");
+    font-size: stencilNumber("fontSize-h4");
+}
+
+.page-heading,
+.brand-title,
+.category-title {
+    color: stencilColor("color-textBase--hover");
+    font-size: stencilNumber("fontSize-h5");
+}
+
+.button--primary {
+    background-color: stencilColor("button--default-color");
+
+    &:hover {
+        background-color: stencilColor("button--default-colorHover");
+    }
+}
+
+.header__topbar {
+	background-color: stencilColor("color-greyLightest");
+}
+
+.header {
+    background-color: stencilColor("header-backgroundColor");
+}
+
+.header__nav {
+    background-color: stencilColor("navUser-dropdown-backgroundColor");
+}
+
+.footer {
+    background-color: stencilColor("footer-backgroundColor");
+}

@@ -1,0 +1,239 @@
+.filter-subMenu {
+    width: 65%;
+    height: 100%;
+    float: right;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    background: #FFF;
+    z-index: 100;
+    overflow: auto;
+
+    
+    @include breakpoint("small") {// 801px and up
+        margin-top: 0px !important;
+    }
+
+    
+    @include breakpoint("medium") {// 801px and up
+        width: unset;
+        height: unset;
+        float: none;
+        position: static;
+        top: unset;
+        right: unset;
+        background: none;
+    }
+}
+
+.filter-subMenu.is-open {
+    overflow: auto;
+}
+
+.filter-subMenu__filter-title {
+    text-transform: uppercase;
+}
+
+.accordion {
+    border: none;
+}
+
+.accordion-navigation {
+    border: none;
+}
+
+.accordion--navList .accordion-title {
+    color: #000;
+    font-family: 'Montserrat', sans-serif !important;
+    letter-spacing: 1.1px;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 29px;
+    
+    @include breakpoint("medium") {// 801px and up
+        font-size: 15px;
+        font-weight: bold;
+    }
+}
+
+.accordion--navList .accordion-indicator {
+    fill: #000;
+    height: 12px;
+}
+
+.filter-dark {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.8;
+    display: none;
+    z-index: 99;
+
+    
+    @include breakpoint("medium") {// 1261px and up
+        display: none;
+    }
+}
+
+.facetedSearch-toggle.is-open .filter-dark {
+    display: block!important;
+
+    
+    @include breakpoint("medium") {// 801px and up
+        display: none;
+    }
+}
+
+.filter-subMenu__close {
+    cursor: pointer;
+    padding-left: 15px;
+    padding-top: 50px;
+    padding-bottom: 15px;
+
+    
+    @include breakpoint("small") {// 801px and up
+        padding-top: 0px;
+        padding-left: 0px;
+        padding-bottom: 25px;
+    }
+
+    
+    @include breakpoint("medium") {// 801px and up
+        display: none;
+    }
+}
+
+.filter-subMenu__close .icon {
+    height: 25px;
+    width: 25px;
+    fill: #000;
+}
+
+.category__tablet-filter .facetedSearch-toggle.toggleLink.is-open .filter-subMenu {
+    
+    @include breakpoint("small") {// 801px and up
+        display: block!important;
+    }
+}
+
+.facetedSearch-navList.is-open {
+    
+    @include breakpoint("small") {// 801px and up
+        padding: 40px;
+    }
+
+    
+    @include breakpoint("medium") {// 801px and up
+        padding: 0px;
+    }
+}
+
+.facetedSearch-refineFilters {
+    display: none;
+}
+
+
+.facetedSearch-navList {
+
+    overflow: hidden;
+    
+    @include breakpoint("medium") {// 1261px and up
+        display: block;
+    }
+}
+
+.toggleLink-text--off {
+    display: flex;
+    justify-content: space-between;
+}
+
+.toggleLink.is-open .toggleLink-text--off {
+    display: none;
+}
+
+.toggleLink-text--on {
+    display: none;
+}
+
+.toggleLink.is-open .toggleLink-text--on {
+    display: flex;
+    justify-content: space-between;
+}
+
+.category__tablet-filter .facetedSearch-toggle {
+    margin-right: 125px;
+    padding-right: 5px;
+}
+
+.facetedSearch-toggle-indicator {
+    width: 100%;
+}
+
+.color-swatch-title {
+    font-family: Lato;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    line-height: 32px;
+} 
+
+.sidebarBlock .sidebar__sub-cats {
+    
+    @include breakpoint("medium") {// 801px and up
+        display: none;
+    }
+}
+
+.page-sidebar .facetedSearch-toggle {
+    
+    @include breakpoint("small") {// 551px and up
+        display: none;
+    }
+}
+
+.filter-by {
+    
+    @include breakpoint("medium") {// 801px and up
+        display: none;
+    }
+}
+
+.color-swatch-title {
+    
+    @include breakpoint("medium") {// 801px and up
+        font-size: 14px;
+    }
+}
+
+.facetedSearch-clearLink {
+    display: none !important;
+}
+
+.filter-subMenu__done-btn {
+    width: 100%;
+    color: black;
+    border: 2px solid black;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 15px;
+    letter-spacing: 2.26px;
+    text-align: center;
+
+    &:hover {
+        background: black;
+        color: white;
+    }
+}
+
+.filter-subMenu__done {
+    width: 100%;
+    display: flex;
+    padding: 0 20px;
+
+    @include breakpoint("medium") {// 801px and up
+        display: none;
+    }
+}

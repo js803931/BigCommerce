@@ -1,0 +1,1 @@
+{"components/custom/lang":"{{!--\r\n    executes lang helper specified by langstr\r\n    \r\n    if the entry doesn't exist in the lang file,\r\n    return a default string if specified, or nothing\r\n--}}\r\n{{#with (lang langstr)}}{{#if ../langstr '!==' this}}{{this}}{{else if ../../default}}{{../../../default}}{{/if}}{{/with}}\n"}

@@ -1,0 +1,191 @@
+<div class="productView productView__container">
+    {{#each product.reviews.messages}}
+        {{#if error}}
+            {{> components/common/alert-error error}}
+        {{/if}}
+        {{#if success}}
+            {{> components/common/alert-success success}}
+        {{/if}}
+    {{/each}}
+
+    <section class="productView-images" data-image-gallery>
+            <figure class="productView-image"
+                    data-image-gallery-main
+                    {{#if product.main_image}}
+                    data-zoom-image="{{getImage product.main_image 'zoom_size' (cdn theme_settings.default_image_product)}}"
+                    {{/if}}
+                    >
+                <div class="productView-img-container">
+                    {{!-- Remove the surrounding a-element if there is no main image. --}}
+                    {{#if product.main_image}}
+                        <a href="{{getImage product.main_image 'zoom_size' (cdn theme_settings.default_image_product)}}" data-index="0">
+                    {{/if}}
+    
+                    <img class="productView-image--default lazyload"
+                         data-sizes="auto"
+                         src="{{cdn 'img/loading.svg'}}"
+                         data-src="{{getImage product.main_image 'product_size' (cdn theme_settings.default_image_product)}}"
+                         alt="{{product.main_image.alt}}" title="{{product.main_image.alt}}" data-main-image >
+    
+                    {{#if product.main_image}}
+                        </a>
+                    {{/if}}
+                </div>
+            </figure>
+            {{#if product.images.length '>' 1}}
+            <ul class="productView-thumbnails"{{#gt product.images.length 5}} data-slick='{
+                    "infinite": false,
+                    "mobileFirst": true,
+                    "slidesToShow": 5,
+                    "slidesToScroll": 1
+                }'{{/gt}}>
+                {{#each product.images}}
+                    <li class="productView-thumbnail">
+                        <a
+                            class="productView-thumbnail-link"
+                            href="{{getImage this 'product_size' (cdn ../theme_settings.default_image_product)}}"
+                            data-image-gallery-item
+                            data-image-gallery-new-image-url="{{getImage this 'product_size' (cdn ../theme_settings.default_image_product)}}"
+                            data-image-gallery-zoom-image-url="{{getImage this 'zoom_size' (cdn ../theme_settings.default_image_product)}}"
+                            data-index="{{@index}}">
+                            <img class="lazyload" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage this 'product_size' (cdn ../theme_settings.default_image_product)}}" alt="{{this.alt}}" title="{{this.alt}}">
+                        </a>
+                    </li>
+                {{/each}}
+            </ul>
+            {{/if}}
+        </section>
+
+        
+
+    <section class="productView-details">
+        <div class="productView-options">
+                <h1 class="productView-title" {{#if schema}}itemprop="name"{{/if}}>{{product.title}}</h1>
+                {{#if product.brand}}
+                    <h2 class="productView-brand"{{#if schema}} itemprop="brand" itemscope itemtype="http://schema.org/Brand"{{/if}}>
+                        <a href="{{product.brand.url}}"{{#if schema}} itemprop="url"{{/if}}><span{{#if schema}} itemprop="name"{{/if}}>{{product.brand.name}}</span></a>
+                    </h2>
+                {{/if}}
+                {{#if product.call_for_price}}
+                    <p class="productView-price">
+                        <span>{{product.call_for_price}}</span>
+                    </p>
+                {{/if}}
+                <div class="productView-price">
+                    <div class="canada-productview-icon">
+                        <img class="lazyload icon-canada" data-src="{{cdn 'webdav:/images/icon_canada.png'}}" src="{{cdn 'img/loading.svg'}}" alt="canada icon">
+                    </div>
+                    {{#or customer (if theme_settings.restrict_to_login '!==' true)}}
+                        {{> components/products/price price=product.price schema_org=schema}}
+                    {{else}}
+                        {{> components/common/login-for-pricing}}
+                    {{/or}}
+                </div>
+                {{{region name="product_below_price"}}}
+                <div class="productView-rating"{{#if product.num_reviews '>' 0}}{{#if schema}} itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating"{{/if}}{{/if}}>
+                    {{#if settings.show_product_rating}}
+                        {{#if product.num_reviews '>' 0}}
+                            {{#if schema}}
+                                <meta itemprop="ratingValue" content="{{product.rating}}">
+                                <meta itemprop="ratingCount" content="{{product.num_reviews}}">
+                                <meta itemprop="reviewCount" content="{{product.num_reviews}}">
+                            {{/if}}
+                        {{/if}}
+                        {{> components/products/ratings rating=product.rating}}
+                        <span class="productView-reviewLink">
+                            {{#if product.num_reviews '>' 0}}
+                                <a href="{{product.url}}#product-reviews" class="productView__num-of-reviews">
+                                    {{lang 'custom.review-number' total=product.num_reviews}}
+                                </a>
+                            {{else}}
+                                {{lang 'custom.review-number' total=product.num_reviews}}
+                            {{/if}}
+                        </span>
+                    {{/if}}
+                    
+                </div>
+            {{#if product.release_date }}
+                <p>{{product.release_date}}</p>
+            {{/if}}
+            <div class="add-to-cart-wish-container">
+            <form class="form" method="post" action="{{product.cart_url}}" enctype="multipart/form-data"
+                  data-cart-item-add>
+                <input type="hidden" name="action" value="add">
+                <input type="hidden" name="product_id" value="{{product.id}}"/>
+                    {{#each product.customizations}}
+                        {{{dynamicComponent 'components/products/customizations'}}}
+                    {{/each}}
+                <div class="productView__filter-container" data-product-option-change style="display:none;">
+                    {{#each product.options}}
+                        {{{dynamicComponent 'components/products/options'}}}
+                    {{/each}}
+                </div>
+                {{#if product.event_date}}
+                    {{> components/products/event-date}}
+                {{/if}}
+                <div class="form-field form-field--stock{{#unless product.stock_level}} u-hiddenVisually{{/unless}}">
+                    <label class="form-label form-label--alternate">
+                        {{lang 'products.current_stock'}}
+                        <span data-product-stock>{{product.stock_level}}</span>
+                    </label>
+                </div>
+                {{#if product.can_purchase}}
+                    {{> components/products/add-to-cart}}
+                {{/if}}
+                {{#if product.out_of_stock}}
+                    {{#if product.out_of_stock_message}}
+                        {{> components/common/alert-error product.out_of_stock_message}}
+                    {{else}}
+                        {{> components/common/alert-error (lang 'products.sold_out')}}
+                    {{/if}}
+                {{/if}}
+               
+            </form>
+            {{#if settings.show_wishlist}}
+                <div class="productView__wishlist-container">
+                    {{> components/common/wishlist-dropdown}}
+                </div>
+            {{/if}}
+        </div>
+        </div>
+        
+       
+        {{> components/common/share}}
+        {{{snippet 'product_details'}}}
+    </section>
+
+    <div class="productView__NRinfo">
+            <div class="productView__NRinfo-container">
+                <img class="lazyload NRinfo__icon NRinfo__icon-1" data-src="{{cdn 'webdav:/product_icons/default_1.png'}}" src="{{cdn 'img/loading.svg'}}" alt="icon">
+                <span class="productView__NRinfo-text NRinfo__text-1">{{{lang 'custom.NR-info-text-1'}}}</span>
+            </div>
+    
+            <div class="productView__NRinfo-container">
+                <img class="lazyload NRinfo__icon NRinfo__icon-2" data-src="{{cdn 'webdav:/product_icons/default_2.png'}}" src="{{cdn 'img/loading.svg'}}" alt="icon">
+                <span class="productView__NRinfo-text NRinfo__text-2">{{{lang 'custom.NR-info-text-2'}}}</span> 
+            </div>
+    
+            <div class="productView__NRinfo-container">
+                <img class="lazyload NRinfo__icon NRinfo__icon-3" data-src="{{cdn 'webdav:/product_icons/default_3.png'}}" src="{{cdn 'img/loading.svg'}}" alt="icon">
+                <span class="productView__NRinfo-text NRinfo__text-3">{{{lang 'custom.NR-info-text-3'}}}</span>
+            </div>
+    </div>
+
+    <article class="productView-description"{{#if schema}} itemprop="description"{{/if}}>
+        {{> components/products/description}}
+        {{> components/custom/shipping-information}}
+        {{#if settings.show_product_reviews}}
+            {{> components/products/reviews reviews=product.reviews product=product urls=urls}}
+        {{/if}}
+    </article>
+    
+</div>
+
+<div id="previewModal" class="modal modal--large cart-preview-modal" data-reveal>
+    <a href="#" class="modal-close" aria-label="{{lang 'common.close'}}" role="button">
+        <span aria-hidden="true">&#215;</span>
+    </a>
+    <div class="modal-content"></div>
+    <div class="loadingOverlay"></div>
+</div>
+

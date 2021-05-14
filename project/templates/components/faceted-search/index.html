@@ -1,0 +1,66 @@
+<div id="facetedSearch" class="facetedSearch sidebarBlock">
+    
+    {{> components/faceted-search/selected-facets this.selected}}
+
+    <a href="#facetedSearch-navList" role="button" class="facetedSearch-toggle toggleLink" data-collapsible>
+        <span class="facetedSearch-toggle-text">
+            <!-- {{#if facets.length '>' 2}}
+                {{lang 'search.faceted.browse-by'}} {{ join (pluck facets 'title') ', ' limit=2 }} &amp; {{ toLowerCase (lang 'search.faceted.more') }}
+            {{/if}}
+
+            {{#if facets.length '<=' 2}}
+                {{lang 'search.faceted.browse-by'}} {{ join (pluck facets 'title') ', ' lastSeparator=' & ' }}
+            {{/if}} -->
+        </span>
+
+        <span class="facetedSearch-toggle-indicator">
+            <span class="toggleLink-text toggleLink-text--on">
+                <!-- {{lang 'search.faceted.hide-filters'}} -->
+
+                Filter
+
+                <i class="icon filter-icon" aria-hidden="true">
+                    <svg><use xlink:href="#icon-remove"/></svg>
+                </i>
+            </span>
+
+            <span class="toggleLink-text toggleLink-text--off">
+                <!-- {{lang 'search.faceted.show-filters'}} -->
+
+                Filter
+
+                <i class="icon filter-icon" aria-hidden="true">
+                    <svg><use xlink:href="#icon-add"/></svg>
+                </i>
+            </span>
+        </span>
+        <div class="filter-dark"></div>
+    </a>
+
+    {{#any facets visible=true}}
+        <div
+            id="facetedSearch-navList"
+            class="facetedSearch-navList blocker-container filter-subMenu">
+            <div class="filter-subMenu__close">
+                <span class="icon icon--close">
+                    <svg><use xlink:href="#icon-close"></use></svg>
+                </span>
+                
+            </div>
+            <div class="accordion accordion--navList">
+                {{#each facets}}
+                    {{#if visible}}
+                    <p class="filter-subMenu__filter-title">{{{dynamicComponent 'components/faceted-search/facets'}}}</p>                        
+                    {{/if}}
+                {{/each}}
+            </div>
+
+            <div class="blocker" style="display: none;"></div>
+            <div class="filter-subMenu__done">
+                <a href="" class="filter-subMenu__done-btn">{{lang 'custom.done'}}</a>
+            </div>
+        </div>
+    {{/any}}
+</div>
+
+

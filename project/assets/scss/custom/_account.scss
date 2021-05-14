@@ -1,0 +1,51 @@
+.addshippingAddress {
+
+    .button {
+        padding: 10px;
+        border: 2px solid #000000;
+        border-radius: 0;
+        color: #000000;
+        text-transform: uppercase;
+        font-family: Lato;
+        font-size: 15px;
+        font-weight: bold;
+        letter-spacing: 2.26px;
+        line-height: 18px;
+
+        &:hover {
+            color: #ffffff;
+            background-color: #000000;
+        }
+    }
+
+    .form-select {
+        color: #000;
+        font-size: 12px;
+        height: 33px;
+        padding: 0 0 0 .75rem;
+        border-radius: 0;
+        border: 1px solid #000;
+        background-position: right .55556rem top 5px;
+    }
+}
+
+.new-password-form {
+
+    .button {
+        padding: 10px;
+        border: 2px solid #000000;
+        border-radius: 0;
+        color: #000000;
+        text-transform: uppercase;
+        font-family: Lato;
+        font-size: 15px;
+        font-weight: bold;
+        letter-spacing: 2.26px;
+        line-height: 18px;
+
+        &:hover {
+            color: #ffffff;
+            background-color: #000000;
+        }
+    }
+}

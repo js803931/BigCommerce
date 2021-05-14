@@ -1,0 +1,20 @@
+<div class="card-option--{{id}} card-option__parent">
+    {{#each (limit this.values 99)}}
+        {{#if @index '===' 3}}
+            <span class='form-option-variant card-option__option card-option__option--more' title="{{this.label}}" 
+            style="background:{{#if this.data}}#{{this.data}}{{else}}url({{getImage image 'core-swatch'}}){{/if}};" 
+            data-option-name="attribute[{{../../../id}}]" data-option-value="{{id}}"></span>
+            <a class="show-card-options" href="##">+ More</a>
+        {{else}}
+            {{#if @index '>' 3}}
+                <span class='form-option-variant card-option__option card-option__option--hidden' title="{{this.label}}" 
+                style="background:{{#if this.data}}#{{this.data}}{{else}}url({{getImage image 'core-swatch'}}){{/if}};"
+                 data-option-name="attribute[{{../../../id}}]" data-option-value="{{id}}"></span>
+            {{else}}
+                <span class='form-option-variant card-option__option' title="{{this.label}}" 
+                style="background:{{#if this.data}}#{{this.data}}{{else}}url({{getImage image 'core-swatch'}}){{/if}};" 
+                data-option-name="attribute[{{../../../id}}]" data-option-value="{{id}}"></span>
+            {{/if}}
+        {{/if}}
+    {{/each}}
+</div>

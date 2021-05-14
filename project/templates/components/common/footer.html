@@ -1,0 +1,213 @@
+
+<footer class="footer" role="contentinfo">
+    <div class="footer-container">
+
+        <article class="footer-info-col subscribe-container" data-section-type="newsletterSubscription">
+
+            <div class="subscribe-flex-container container">
+                {{#if settings.show_newsletter_box}}
+                {{> components/common/subscription-form}}
+
+
+                <div class="footer__social-media-container">
+                    <a href="https://www.facebook.com/northernreflections">
+                        <i class="fab fa-facebook-f footer__social-media-icon fa-2x"></i>
+                    </a>
+                    <a href="https://twitter.com/N_Reflections">
+                        <i class="fab fa-twitter footer__social-media-icon fa-2x"></i>
+                    </a>
+                    <a href="https://www.instagram.com/northernreflections">
+                        <i class="fab fa-instagram footer__social-media-icon fa-2x"></i>
+                    </a>
+                </div>
+                {{/if}}
+                {{> components/common/payment-icons}}
+            </div>
+            <p class="subscribe-legal-text">
+                    {{lang 'custom.subscribe-legal-text'}}
+            </p>
+        </article>
+
+        {{#if theme_settings.social_icon_placement_bottom '!==' 'bottom_none'}}
+        <article class="footer-info-col
+                footer-info-col--social
+                footer-info-col--{{#if theme_settings.social_icon_placement_bottom '===' 'bottom_left'}}left{{else}}right{{/if}}"
+            data-section-type="footer-webPages">
+            <h5 class="footer-info-heading">{{lang 'social.connect'}}</h5>
+            {{> components/common/social-links}}
+        </article>
+        {{/if}}
+
+        <section class="footer-info">
+
+
+            <div class="footer__acc-menus">
+
+
+
+                <!-- *******************
+                    ACCOUNT COLLAPSIBLE
+                    ******************* -->
+
+                <div class="footer__collapse-container">
+                    <a href="##" class="footer__collapse-menu footer__acc-menu footer__acc-title" data-collapsible="footer__collapse-account"
+                        data-collapsible-disabled-breakpoint="medium" aria-controls="footer__collapse-account"
+                        aria-expanded="false">
+                        {{pages.0.name}}
+                        <span class="footer__nav-menu-plus icon icon--add">
+                            <svg class="footer__nav-plus">
+                                <use xlink:href="#icon-add"></use>
+                            </svg>
+                        </span>
+
+                        <span class="icon icon--remove footer__nav-menu-minus">
+                            <svg class="footer__nav-minus">
+                                <use xlink:href="#icon-remove"></use>
+                            </svg>
+                        </span>
+                    </a>
+
+                    <ul class="footer__collapse-list footer__acc-item footer__acc-content" id="footer__collapse-account"
+                        aria-hidden="true">
+                        {{#each pages.0.children}}
+                        <li>
+                            <a href="{{this.url}}" class="footer__acc-content-item">{{ this.name }}</a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+
+                <!-- *******************
+                    COMPANY COLLAPSIBLE
+                    ******************* -->
+
+                <div class="footer__collapse-container">
+                    <a href="##" class="footer__collapse-menu footer__acc-menu footer__acc-title" data-collapsible="footer__collapse-company"
+                        data-collapsible-disabled-breakpoint="medium" aria-controls="footer__collapse-company"
+                        aria-expanded="false">
+                        {{pages.1.name}}
+                        <span class="footer__nav-menu-plus icon icon--add">
+                            <svg class="footer__nav-plus">
+                                <use xlink:href="#icon-add"></use>
+                            </svg>
+                        </span>
+
+                        <span class="icon icon--remove footer__nav-menu-minus">
+                            <svg class="footer__nav-minus">
+                                <use xlink:href="#icon-remove"></use>
+                            </svg>
+                        </span>
+                    </a>
+
+                    <ul class="footer__collapse-list footer__acc-item footer__acc-content" id="footer__collapse-company"
+                        aria-hidden="true">
+                        {{#each pages.1.children}}
+                        <li>
+                            <a href="{{this.url}}" class="footer__acc-content-item">{{ this.name }}</a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+                <!-- *******************
+                      HELP COLLAPSIBLE
+                    ******************* -->
+                <div class="footer__collapse-container">
+                    <a href="##" class="footer__collapse-menu footer__acc-menu footer__acc-title" data-collapsible="footer__collapse-help"
+                        data-collapsible-disabled-breakpoint="medium" aria-controls="footer__collapse-help"
+                        aria-expanded="false">
+                        {{pages.2.name}}
+                        <span class="footer__nav-menu-plus icon icon--add">
+                            <svg class="footer__nav-plus">
+                                <use xlink:href="#icon-add"></use>
+                            </svg>
+                        </span>
+
+                        <span class="icon icon--remove footer__nav-menu-minus">
+                            <svg class="footer__nav-minus">
+                                <use xlink:href="#icon-remove"></use>
+                            </svg>
+                        </span>
+                    </a>
+
+                    <ul class="footer__collapse-list footer__acc-item footer__acc-content" id="footer__collapse-help"
+                        aria-hidden="true">
+                        {{#each pages.2.children}}
+                        <li>
+                            <a href="{{this.url}}" class="footer__acc-content-item">{{ this.name }}</a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                </div>
+
+                <div class="footer__line"></div>
+
+                <div class="footer__CMN-image-large">
+                    <a href="/cmn">
+                        <img class="lazyload footer__CMN-large-img" data-src="{{cdn 'webdav:/images/CMN-large-logo.png'}}" src="{{cdn 'img/loading.svg'}}" alt="Children's Miracle Network">
+                        <p class="footer__CMN-proud-text">{{lang 'custom.proud-supporter'}}</p>
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="footer__CMN-image-mobile">
+                <a href="/cmn">
+                    <img class="lazyload footer__CMN-mobile-img" data-src="{{cdn 'webdav:/images/CMN-mobile-logo.png'}}" src="{{cdn 'img/loading.svg'}}" alt="Children's Miracle Network">
+                    <p class="footer__CMN-proud-text">{{lang 'custom.proud-supporter'}}</p>
+                </a>
+            </div>
+
+            {{#if settings.address}}
+            <article class="footer-info-col footer-info-col--small footer__company-payment-info" data-section-type="storeInfo">
+                <!-- <h5 class="footer-info-heading">{{lang 'footer.info'}}</h5> -->
+
+                <div class="footer__company-info">
+
+                    <span class="icon icon--location-arrow">
+                        <svg>
+                            <use xlink:href="#icon-location-arrow-solid"></use>
+                        </svg>
+                    </span>
+
+                    <p class="footer__company-name">{{moment format="YYYY"}} {{settings.store_name}} </p>
+                    <address class="footer__address">
+                        {{settings.address}}
+                    </address>
+                    {{#if settings.phone_number}}
+                    <span class="icon icon--phone">
+                        <svg class="footer__phone-icon">
+                            <use xlink:href="#icon-phone-solid"></use>
+                        </svg>
+                    </span>
+
+                    <p class="footer__phone-number">{{lang 'custom.footer-phone-number'}}</p>
+
+                </div>
+
+                <div class="footer__payment-icons">
+                    <span class="footer__payment-image">
+                            <img class="lazyload" data-src="{{cdn 'webdav:/images/paypal-image.png'}}" src="{{cdn 'img/loading.svg'}}" alt="paypal">
+                    </span>
+                    <span class="footer__payment-image">
+                            <img class="lazyload" data-src="{{cdn 'webdav:/images/visa-image.png'}}" src="{{cdn 'img/loading.svg'}}" alt="visa">
+                    </span>
+                    <span class="footer__payment-image">
+                            <img class="lazyload" data-src="{{cdn 'webdav:/images/mastercard-image.png'}}" src="{{cdn 'img/loading.svg'}}" alt="mastercard">
+                    </span>
+                    <span class="footer__payment-image">
+                            <img class="lazyload" data-src="{{cdn 'webdav:/images/amex-image.png'}}" src="{{cdn 'img/loading.svg'}}" alt="amex">
+                    </span>
+                    <span class="footer__payment-image">
+                            <img class="lazyload" data-src="{{cdn 'webdav:/images/geotrust-image.png'}}" src="{{cdn 'img/loading.svg'}}" alt="geotrust">
+                    </span>
+                    <span class="footer__payment-image ssl-secured">
+                            <img class="lazyload" data-src="{{cdn 'webdav:/images/ssl-image.png'}}" src="{{cdn 'img/loading.svg'}}" alt="ssl">
+                    </span>
+                </div>
+
+                {{/if}}
+            </article>
+            {{/if}}
+        </section>
+    </div>
+</footer>

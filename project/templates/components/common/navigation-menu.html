@@ -1,0 +1,87 @@
+<nav class="navPages">
+	<ul class="navPages-list">
+		{{#each categories}}
+		<li class="navPages-item custom-navPages-link">
+			{{> components/common/navigation-list}}
+		</li>
+		{{/each}}
+	</ul>
+
+	<div class="navPages-custom">
+		<ul class="navPages-custom-list">
+			<a href="/shop-by-phone">
+				<li class="navPages-custom-item">
+					<span class="icon icon--phone">
+						<svg class="navPages-icon">
+							<use xlink:href="#icon-phone-solid"></use>
+						</svg>
+					</span>
+					{{lang 'custom.shop-by-phone'}}
+				</li>
+			</a>
+			<a href="/contact-us">
+				<li class="navPages-custom-item">
+					<span class="icon icon--envelope">
+						<svg class="navPages-icon">
+							<use xlink:href="#icon-envelope"></use>
+						</svg>
+					</span>
+					{{lang 'custom.contact-us'}}
+				</li>
+			</a>
+			<a href="/northern-friends">
+				<li class="navPages-custom-item">
+					<span class="icon icon--plus">
+						<svg class="navPages-icon">
+							<use xlink:href="#icon-plus-solid"></use>
+						</svg>
+					</span>
+					{{lang 'custom.northern-friends-rewards'}}
+				</li>
+			</a>
+			<a href="/cmn">
+				<li class="navPages-custom-item">
+					<span class="icon icon--user">
+						<svg class="navPages-icon">
+							<use xlink:href="#icon-CMN-logo"></use>
+						</svg>
+					</span>
+					{{lang 'custom.childrens-miracle-network'}}
+				</li>
+			</a>
+			<a href="/store-locator">
+				<li class="navPages-custom-item">
+					<span class="icon icon--location-arrow">
+						<svg class="navPages-icon">
+							<use xlink:href="#icon-location-arrow-solid"></use>
+						</svg>
+					</span>
+					{{lang 'custom.store-locator'}}
+				</li>
+			</a>
+			<a href="/blog">
+				<li class="navPages-custom-item">
+					<span class="icon icon--rss">
+						<svg class="navPages-icon">
+							<use xlink:href="#icon-rss"></use>
+						</svg>
+					</span>
+					{{lang 'custom.blog'}}
+				</li>
+			</a>
+			<a href="/gift-card">
+
+				<li class="navPages-custom-item">
+					<span class="icon icon--gift">
+						<svg class="navPages-icon">
+							<use xlink:href="#icon-gift-solid"></use>
+						</svg>
+					</span>
+					{{lang 'custom.gift-cards'}}
+				</li>
+			</a>
+		</ul>
+	</div>
+</nav>
+<div class="new-nav-dark"></div>
+<div class="nav-dark" aria-controls="menu"></div>

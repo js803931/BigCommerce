@@ -1,0 +1,225 @@
+.page-heading {
+   color: #000;
+   font-family: Arial, Helvetica, sans-serif;
+   
+}
+
+.page--page .page-heading {
+    display: none;
+}
+
+.page--blog .page-heading {
+    display: none;
+}
+
+.container {
+    padding-bottom: 0px;
+    
+    @include breakpoint("small") {// 551px and up
+        padding-bottom: 50px;
+    }
+    
+}
+
+.banners {
+    background-color: transparent;
+}
+
+.page--forgotpassword .body {
+    margin-top: 2.75rem;
+}
+
+.page--forgotpassword .account .button {
+    border-radius: 0;
+    background: white;
+    color: black;
+    border: 2px solid black;
+    text-transform: uppercase;
+    font-family: Lato;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+
+    &:hover {
+        background: black;
+        color: white;
+    }
+}
+
+.page--forgotpassword .form-prefixPostfix.wrap {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+}
+
+.page--forgotpassword .form-prefixPostfix.wrap {
+    padding: 5px;
+}
+
+.page--page .page-content--centered {
+    width: 100%;
+}
+
+.page--forgotpassword .forgot-password-form .form-prefixPostfix.wrap .button {
+    margin: 0;
+    
+    @include breakpoint("medium") {// 801px and up
+        width: auto;
+    }
+    
+}
+
+.account .pagination {
+    margin-top: 0px;
+}
+
+.account-content .pagination .pagination-list {
+    justify-content: flex-start;
+}
+
+.page--account_new_return .account-content .button {
+    color: #000;
+    border: 2px solid #000;
+    padding: 10px 18px;
+    font-family: Lato;
+    letter-spacing: 2.26px;
+    line-height: 18px;
+    font-weight: 1000;
+    text-align: center;
+    display: inline-block;
+    border-radius: 0px;
+    text-transform: uppercase;
+    
+    &:hover {
+        color: white;
+        background: black;
+    }
+}
+
+.page--createaccount .form-select {
+    color: black;
+    font-size: 12px;
+    height: 33px;
+    padding: 0;
+    padding-left: 0.75rem;
+    border-radius: 0px;
+    border: 1px solid black;
+    background-position: right 0.55556rem top 5px;
+}
+
+.page--blog_post {
+
+}
+
+.page--blog_post .blog-thumbnail {
+    display: none;
+}
+
+.page--blog_post .blog-post-body,
+.page--blog .blog-post-body {
+    width: 100%;
+}
+
+.page--blog_post .blog-post-figure,
+.page--blog .blog-post-figure {
+    width: 0px;
+}
+
+.page--blog .blog-view-all {
+    display: none;
+}
+
+.page--blog .blog-read-more,
+.page--blog_post .blog-view-all {
+    background: #000;
+    color: #FFF;
+    text-transform: uppercase;
+    letter-spacing: 2.26px;
+    margin: 0 auto;
+    padding: 5px 20px;
+    text-align: center;
+    font-family: Lato;
+    font-size: 15px;
+}
+
+.page--blog .blog .addthis_toolbox,
+.page--blog_post .addthis_toolbox {
+    margin-top: 0px;
+}
+
+.page--blog .socialLinks svg,
+.page--blog_post .socialLinks svg {
+    fill: black;
+}
+
+.page--editaccount .form-actions .button {
+    font-family: Poppins;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1.83px;
+    line-height: 23px;
+    color: #000;
+    text-transform: uppercase;
+    border: 2px solid #000000;
+    background: #FFF;
+    border-radius: 0px;
+    text-align: center;
+    padding: 0px;
+    padding: 5px 15px;
+
+    &:hover {
+        background: black;
+        color: white;
+    }
+}
+
+a {
+    color: black;
+}
+
+.page--account_orderstatus .pagination-list .pagination-item {
+    margin: 0 auto;
+}
+
+.page--account_returns .account-product-description + .definitionList {
+    margin: 0;
+}
+
+.page--createaccount .form-row {
+    margin: 0px 1.25rem;
+}
+
+.page--wishlists .form-actions .button,
+.page--cart .shipping-quotes .button,
+.page--createaccount .form-actions .button,
+.page--createaccount_thanks .page-content .button,
+.wishlist-add .button,
+.page--cart .modal-body .button {
+    font-family: Poppins;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1.83px;
+    line-height: 23px;
+    color: #000;
+    text-transform: uppercase;
+    border: 2px solid #000000;
+    background: #FFF;
+    border-radius: 0px;
+    text-align: center;
+    padding: 0px;
+    padding: 5px 15px;
+
+    &:hover {
+        color: white;
+        background: black;
+    }
+}
+
+.hiddenPageTotal {
+    display: none;
+}
+
+.forgot-password-form .form-input {
+    margin: 0;
+    margin-bottom: 15px;
+}

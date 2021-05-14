@@ -1,0 +1,17 @@
+{{!--
+we need to pass this componenet two variables:
+inputIndex
+numberOfOptions
+--}}
+
+{{#for 0 numberOfOptions}}
+<span class="review-btn-container">
+    <input name="{{lang (concat (concat 'review-options.review-option-'../inputIndex)'.name')}}" type="radio" class="review-btn"
+        value="{{lang (concat (concat 'review-options.review-option-'../inputIndex)'.title')}}
+        <strong>{{lang (concat (concat (concat 'review-options.review-option-'../inputIndex)'.option-') $index)}}</strong>"
+        id="{{lang (concat (concat 'review-options.review-option-'../inputIndex)'.name')}}-{{$index}}">
+    <label class="review-btn-label" for="{{lang (concat (concat 'review-options.review-option-'../inputIndex)'.name')}}-{{$index}}">
+        {{lang (concat (concat (concat 'review-options.review-option-'../inputIndex)'.option-') $index)}}
+    </label>
+</span>
+{{/for}}

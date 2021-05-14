@@ -1,0 +1,16 @@
+<div class="heroCarousel-content{{#unless show_background}} heroCarousel-content--empty{{/unless}}">
+    <div class="heroCarousel-content__titleblock">
+    <h2 class="heroCarousel-title">{{{heading}}}</h2>
+    {{#each (split text "^^")}}
+    <p class="heroCarousel-description heroCarousel-description-{{@index}}">
+        {{{this}}}
+    </p>
+    {{#if @first}}
+        </div>
+    {{/if}}
+    {{/each}}
+    {{#if button_text}}
+        <div class="heroCarousel--link--center">
+        <span class="heroCarousel-action button button--primary button--large button-shadow">{{button_text}}</span></div>
+    {{/if}}
+</div>

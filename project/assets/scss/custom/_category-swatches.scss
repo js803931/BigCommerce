@@ -1,0 +1,56 @@
+// =============================================================================
+// IntuitSolutions.net - Category Swatches
+// =============================================================================
+.card-options {
+	margin-top: 5px;
+	text-align: center;
+
+	@include breakpoint("small") { // 551px and up
+		text-align: left;
+	}
+}
+
+// we have to test when images are not square... we likely have to change this CSS
+.card-option__option {
+	position: relative;
+    padding: 0;
+	width: 55px;
+	height: 55px;
+    min-width: initial;
+	border: 1px solid #c1c1c1;
+	background-size: cover;
+    background-position: center;
+	background-repeat: no-repeat;
+	pointer-events: inherit;
+	cursor: pointer;
+
+	@include breakpoint("small") { // 551px and up
+		width: 40px;
+		height: 40px;
+	}
+}
+
+.card-option__option.active {
+    border-color: #333;
+	box-shadow: 0 0 0 1px #333;
+	outline: 1px solid #FFF;
+    outline-offset: -1px;
+}
+
+.page--hasSwatches .card-options { // to equalize heights of cards a bit
+	min-height: 20px;
+}
+
+.card-option__icon {
+	position: absolute;
+	width: 23px;
+	height: 23px;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	pointer-events: none;
+}
+
+.card-option__icon svg {
+	fill: #afc3ff;
+}

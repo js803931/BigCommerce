@@ -1,0 +1,74 @@
+//to change the icon used or the classes, find code in carousel.js (common/carousel)
+
+//variables for slick arrow icons
+$carouselArrowIconColor: #D4D4D4;
+$carouselArrowIconHoverColor: #D4D4D4;
+$carouselArrowBackgroundColor: rgba(255,255,255,.9);
+$carouselArrowBackgroundHoverColor: rgba(255,255,255,.9);
+$carouselArrowBorderColor: transparent;
+$carouselArrowBorderHoverColor: transparent;
+$carouselArrowBorderRadius: 0px;
+$carouselArrowHeight: 4.35714rem;
+$carouselArrowWidth: 2.85714rem;
+
+.slick-arrow {
+    padding: 0px;
+    height: $carouselArrowHeight;
+    width: $carouselArrowWidth;
+    background-color: $carouselArrowBackgroundColor;
+    border-color: $carouselArrowBorderColor;
+    border-radius: $carouselArrowBorderRadius;
+
+    //remove default icons (background images of 'before' of buttons)
+    &::before {
+        display: none;
+    }
+
+    &:hover,
+    &:focus {
+        background-color: $carouselArrowBackgroundHoverColor;
+        border-color: $carouselArrowBorderHoverColor;
+
+        &::before {
+            display: none;
+        }
+    }
+}
+
+//add styles of added icons
+.slick-prev__icon,
+.slick-next__icon {
+    height: 100%;
+    width: 100%;
+
+    svg {
+        fill: $carouselArrowIconColor;
+        stroke: $carouselArrowIconColor;
+        height: 100%;
+        width: 100%;
+    }
+
+    &:hover,
+    &:focus {
+
+        svg {
+            fill: $carouselArrowIconHoverColor;
+            stroke: $carouselArrowIconHoverColor;
+        }
+    }
+}
+
+.slick-initialized {
+
+    &.match-height {
+
+        .slick-slide {
+            display: flex;
+            height: auto;
+        }
+
+        .slick-track {
+            display: flex;
+        }
+    }
+}

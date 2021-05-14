@@ -1,0 +1,18 @@
+{{#each custom_fields}}
+    {{#contains name 'custom-sash'}}
+        <div class="sale-flag-sash"
+            {{#each (split value "|")}}
+                {{#if @index 1}}
+                    style="background-color: {{this}};"
+                {{/if}}
+            {{/each}}>
+            <span class="sasher-text">
+            {{#each (split value "|")}}
+                {{#if @index 0}}
+                    {{this}}
+                {{/if}}
+            {{/each}}
+            </span>
+        </div>
+    {{/contains}}
+{{/each}}

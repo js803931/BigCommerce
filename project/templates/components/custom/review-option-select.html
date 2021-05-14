@@ -1,0 +1,10 @@
+<div class="review-input-container">
+    {{#for 0 (lang 'number-of-review-options')}}
+    <p class="review-option-title">{{lang (concat (concat 'review-options.review-option-'$index)'.title')}}</p>
+            {{> components/custom/review-option-input
+                inputIndex=$index
+                numberOfOptions=(lang (concat (concat 'review-options.review-option-'$index)'.number-of-options'))
+            }}
+    <input type="radio" name="{{lang (concat (concat 'review-options.review-option-'$index)'.name')}}" class="review-btn empty-btn" value="" checked="checked" />
+    {{/for}}
+</div>

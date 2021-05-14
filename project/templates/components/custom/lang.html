@@ -1,0 +1,7 @@
+{{!--
+    executes lang helper specified by langstr
+    
+    if the entry doesn't exist in the lang file,
+    return a default string if specified, or nothing
+--}}
+{{#with (lang langstr)}}{{#if ../langstr '!==' this}}{{this}}{{else if ../../default}}{{../../../default}}{{/if}}{{/with}}

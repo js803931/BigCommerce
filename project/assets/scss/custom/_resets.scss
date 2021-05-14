@@ -1,0 +1,22 @@
+// =============================================================================
+// IntuitSolutions.net - Resets
+// =============================================================================
+
+// fix custom fields on desktop
+@include breakpoint("small") { // 551px and up
+    .productView-info {
+        margin-top: 0.78571rem;
+    }
+
+    .productView-info > :first-child {
+        margin-top: 0;
+    }
+
+    .productView-info-name,
+    .productView-info-value {
+        font-family: stencilFontFamily("body-font");
+        font-size: 1rem;
+        float: left;
+        margin-bottom: 0.75rem;
+    }
+}

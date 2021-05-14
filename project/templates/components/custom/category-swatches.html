@@ -1,0 +1,5 @@
+{{#each product.options}}
+	{{#if type '===' 'Configurable_PickList_Swatch'}}
+		{{{dynamicComponent 'components/custom/options'}}}
+	{{/if}}
+{{/each}}

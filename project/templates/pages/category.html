@@ -1,0 +1,123 @@
+---
+category:
+    shop_by_price: true
+    products:
+        limit: {{theme_settings.categorypage_products_per_page}}
+---
+
+{{inject "categoryProductsPerPage" theme_settings.categorypage_products_per_page}}
+{{#partial "head"}}
+{{#if pagination.category.previous}}
+<link rel="prev" href="{{pagination.category.previous}}">
+{{/if}}
+{{#if pagination.category.next}}
+<link rel="next" href="{{pagination.category.next}}">
+{{/if}}
+{{/partial}}
+
+{{#partial "page"}}
+
+{{#if banners.bottom}}
+<div class="banners promo-header-banner" data-banner-location="bottom">
+    <div class="banner">
+        {{{limit banners.bottom 1}}}
+    </div>
+</div>
+{{/if}}
+
+{{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+<h1 class="page-heading category-title-mobile category-{{category.name}}">{{category.name}}</h1>
+<div class="page category-landing__container">
+    {{#if category.faceted_search_enabled}}
+    <aside class="page-sidebar" id="faceted-search-container">
+        {{#if category.subcategories}}
+        <div class="cat-subcats__container page-sidebar" id="faceted-search-container">
+            <h2 class="category__sidebar-title">Browse By:</h2>
+            <h3 class="cat-subcat__list-title">{{category.name}}</h3>
+            <ul class="cat-subcats__list">
+                {{#each category.subcategories}}
+                <li class="cat-subcat">
+                    <a class="cat-subcat__action" href="{{url}}" alt="{{name}}" title="{{name}}">
+                        <p class="cat-subcat__title">{{name}}</p>
+                    </a>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        {{/if}}
+        <h2 class="category__sidebar-title">Filter By:</h2>
+        {{> components/category/sidebar}}
+    </aside>
+    {{else if category.subcategories}}
+    <aside class="page-sidebar" id="faceted-search-container">
+        {{> components/category/sidebar}}
+    </aside>
+    {{else if category.shop_by_price}}
+    {{#if theme_settings.shop_by_price_visibility}}
+    <aside class="page-sidebar" id="faceted-search-container">
+        {{> components/category/sidebar}}
+    </aside>
+    {{/if}}
+    {{/if}}
+
+    <main class="page-content category__list-container" id="product-listing-container">
+        {{#if category.image}}
+        <img class="lazyload category__head-image" data-sizes="auto" src="{{cdn 'img/loading.svg'}}" data-src="{{getImage category.image 'zoom_size'}}" alt="category head image">
+        {{/if}}
+
+        {{{category.description}}}
+        {{{snippet 'categories'}}}
+
+        {{#if banners.top}}
+        <div class="banners tops-banner" data-banner-location="top">
+            <div class="banner">
+                {{{limit banners.top 1}}}
+            </div>
+        </div>
+        {{/if}}
+
+        {{#if category.products}}
+        {{#if category.subcategories}}
+        <div class="subcats">
+            <ul class="subcats__list">
+                {{#each category.subcategories}}
+                <li class="subcat">
+                    <a class="subcat__action" href="{{url}}" alt="{{name}}" title="{{name}}">
+                        <img class="subcat__image lazyload" data-src="{{getImage image 'gallery_size'}}"
+                            alt="{{name}}" src="{{cdn 'img/loading.svg'}}">
+                        <h2 class="subcat__title">{{name}}</h2>
+                    </a>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        {{/if}}
+        <h1 class="page-heading category-title category-{{category.name}}">{{category.name}}</h1>
+        <a class="shop-all-link" href="/{{breadcrumbs.1.name}}">Shop All {{toLowerCase breadcrumbs.1.name}}</a>
+        {{> components/category/product-listing }}
+        {{else}}
+        <p>{{lang 'categories.no_products'}}</p>
+        {{/if}}
+        
+        <div class="category__SEO-container">
+            <div class="category__SEO-text">
+            </div>
+        </div>
+    </main>
+
+    <a href="#top" class="top-of-page">
+        <div class="icon icon--chevron-down top-of-page-icon">
+            <svg>
+                <use xlink:href="#icon-chevron-down"></use>
+            </svg>
+        </div>
+        TOP
+    </a>
+    
+</div>
+
+
+
+{{/partial}}
+{{> layout/base}}

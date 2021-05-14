@@ -1,0 +1,120 @@
+<div class="productView__collapse-container review-collapse">
+    <a href="##" class="productView__collapse-menu productView__collapse-menu" data-collapsible="productView__collapse-reviews"
+        aria-controls="productView__collapse-account" aria-expanded="false">
+        <p class="productView__collapse-title">REVIEWS</p>
+
+        <span class="productView__nav-menu-plus icon icon--add">
+            <svg class="productView__nav-plus">
+                <use xlink:href="#icon-add"></use>
+            </svg>
+        </span>
+
+        <span class="icon icon--remove productView__nav-menu-minus">
+            <svg class="productView__nav-minus">
+                <use xlink:href="#icon-remove"></use>
+            </svg>
+        </span>
+    </a>
+
+    <ul class="productView__collapse-list productView__collapse-item productView__collapse-content review-collapse-content" id="productView__collapse-reviews"
+        aria-hidden="true">
+        <li>
+
+
+            <section class="toggle productReviews" id="product-reviews" data-product-reviews>
+                {{#if settings.show_product_reviews}}
+                <span class="productView-reviewLink productView__write-review">
+                    <a class="" href="{{product.url}}{{#if is_ajax}}#write_review{{/if}}" {{#unless is_ajax }}
+                        data-reveal-id="modal-review-form" {{/unless}}>
+                        WRITE REVIEW
+                    </a>
+                </span>
+                {{> components/products/modals/writeReview}}
+                {{/if}}
+                <h4 class="toggle-title">
+                    {{lang 'products.reviews.header' total=reviews.total}}
+                    <a class="toggleLink is-open" data-collapsible href="#productReviews-content">
+                        <span class="toggleLink-text toggleLink-text--on">
+                            {{lang 'products.reviews.hide'}}
+                        </span>
+                        <span class="toggleLink-text toggleLink-text--off">
+                            {{lang 'products.reviews.show'}}
+                        </span>
+                    </a>
+                </h4>
+                <div class="toggle-content is-open" id="productReviews-content" aria-hidden="false">
+                    <ul class="productReviews-list" id="productReviews-list">
+                        {{#each reviews.list}}
+                            {{#if @index '<=' 2}}
+                        <li class="productReview">
+                            <article itemprop="review" itemscope itemtype="http://schema.org/Review">
+                                <header>
+                                    <div class="productReview-date">{{date}}</div>
+                                    <span class="productReview-rating rating--small" itemprop="reviewRating" itemscope
+                                        itemtype="http://schema.org/Rating">
+                                        {{> components/products/ratings rating=rating}}
+                                        <span class="productReview-ratingNumber" itemprop="ratingValue">{{ rating }}</span>
+                                    </span>
+                                    <h5 itemprop="name" class="productReview-title">{{ title }}</h5>
+                                    <span itemprop="reviewComment">{{ comment }}</span>
+                                </header>
+                                <p itemprop="reviewBody" class="productReview-body">{{{text}}}</p>
+                                {{#if name}}
+                                <meta itemprop="author" content="{{name}}">
+                                <p class="productReview-author">
+                                    {{lang 'custom.review-name' name=name }}
+                                </p>
+                                {{else}}
+                                <p class="productReview-author">
+                                    {{lang 'custom.review-name' name=(lang 'products.reviews.anonymous_poster')}}
+                                </p>
+                                {{/if}}      
+                            </article>
+                        </li>
+                        
+                        {{else}}
+                        {{#if @index '>' 2}}
+                        <li class="productReview productReview--hidden">
+                            <article itemprop="review" itemscope itemtype="http://schema.org/Review">
+                                <header>
+                                    <div class="productReview-date">{{date}}</div>
+                                    <span class="productReview-rating rating--small" itemprop="reviewRating" itemscope
+                                        itemtype="http://schema.org/Rating">
+                                        {{> components/products/ratings rating=rating}}
+                                        <span class="productReview-ratingNumber" itemprop="ratingValue">{{ rating }}</span>
+                                    </span>
+                                    <h5 itemprop="name" class="productReview-title">{{ title }}</h5>
+                                    <span itemprop="reviewComment">{{ comment }}</span>
+                                </header>
+                                <p itemprop="reviewBody" class="productReview-body">{{{text}}}</p>
+                                {{#if name}}
+                                <meta itemprop="author" content="{{name}}">
+                                <p class="productReview-author">
+                                    {{lang 'custom.review-name' name=name }}
+                                </p>
+                                {{else}}
+                                <p class="productReview-author">
+                                    {{lang 'custom.review-name' name=(lang 'products.reviews.anonymous_poster')}}
+                                </p>
+                                {{/if}}
+                                
+                            </article>
+                        </li>
+                        {{/if}}
+                        {{/if}}
+                        {{/each}}
+                        <a class="show-more-reviews" href="##">+ See More</a>
+                    </ul>
+                    
+                </div>
+            </section>
+
+            <!--  -->
+            {{#if reviews.total}}
+            {{/if}}
+            <!--  -->
+
+            {{{snippet 'reviews'}}}
+        </li>
+    </ul>
+</div>

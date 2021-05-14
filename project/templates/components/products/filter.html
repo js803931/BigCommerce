@@ -1,0 +1,19 @@
+<form class="actionBar category__sort-filter-tablet" method="get" data-sort-by>
+    
+<div class="pagination-top">
+    <div class="sort-filter-container">
+        {{> components/category/sort-box sort=sort}}
+        <span class="category__tablet-filter" id="faceted-search-container">
+            {{> components/category/sidebar}}
+        </span>
+    </div>
+    {{> components/common/paginator
+        pagination.category
+        product_count=category.count
+        page_total=(ceil (divide category.total_products category.count))
+        products_on_page=theme_settings.categorypage_products_per_page
+    }}
+</div>
+   
+
+</form>

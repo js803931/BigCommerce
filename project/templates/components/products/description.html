@@ -1,0 +1,35 @@
+<div class="productView__collapse-container">
+    <a href="##" class="productView__collapse-menu prod-view-description-a" data-collapsible="productView__collapse-description"
+        aria-controls="productView__collapse-account" aria-expanded="false">
+        <p class="productView__collapse-title">PRODUCT DESCRIPTION</p>
+
+        <span class="productView__nav-menu-plus icon icon--add">
+            <svg class="productView__nav-plus">
+                <use xlink:href="#icon-add"></use>
+            </svg>
+        </span>
+
+        <span class="icon icon--remove productView__nav-menu-minus">
+            <svg class="productView__nav-minus">
+                <use xlink:href="#icon-remove"></use>
+            </svg>
+        </span>
+    </a>
+
+    <ul class="productView__collapse-list prod-view-description-ul productView__collapse-item productView__collapse-content" id="productView__collapse-description"
+        aria-hidden="true">
+        <li>
+            <div class="productView-description productView__collapse-content-item">
+                {{> components/custom/product-view-details}}
+                {{{product.description}}}
+                {{{snippet 'product_description'}}}
+                {{#if product.warranty}}
+                <p class="productView-title">{{lang 'products.warranty'}}</p>
+                <div class="productView-description">
+                    {{{product.warranty}}}
+                </div>
+                {{/if}}
+            </div>
+        </li>
+    </ul>
+</div>

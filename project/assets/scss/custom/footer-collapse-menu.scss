@@ -1,0 +1,19 @@
+.collapseMenu__list {
+    display: none;
+
+    @include breakpoint("medium") { // 551px and up
+        display: block;
+    }
+}
+
+.collapseMenu__list.is-open {
+    display: block;
+}
+
+.collapseMenu.is-open .footer__nav-menu-plus {
+    display: none;
+}
+
+.collapseMenu.is-open .footer__nav-menu-minus {
+    display: block;
+}

@@ -1,0 +1,55 @@
+/* ==========================================================
+## These match up directly with the ITS Styleguide
+## Colors shouldn't need to be changed but the option 
+## is available to you.
+========================================================== */
+
+$font-color__heading: $font-color__heading;
+$font-color__text: $font-color__text;
+$font-color__link: $font-color__link;
+$font-color__link--hover: $font-color__link--hover;
+
+h1 {
+    color: $font-color__heading;
+    font-size: 28px;
+    
+    @include breakpoint("medium") {// 801px and up
+        font-size: 32px;
+    }
+    
+    @include breakpoint("large") {// 1140px and up
+        font-size: 36px;
+    }
+}
+
+h2 {    
+    color: $font-color__heading;
+    font-size: 21px;
+    
+    @include breakpoint("large") {// 1140px and up
+        font-size: 24px;
+    }
+}
+
+h3 {
+    color: $font-color__heading;
+    font-size: 14px;
+    
+    @include breakpoint("medium") {// 801px and up
+        font-size: 18px;
+    }
+}
+
+p {
+    color: $font-color__text;
+    font-size: 18px;
+}
+
+a {
+    color: $font-color__link;
+    font-size: 14px;
+    
+    &:hover {
+        color: $font-color__link--hover;
+    }
+}

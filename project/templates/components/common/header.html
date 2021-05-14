@@ -1,0 +1,174 @@
+<header class="header" role="banner">
+	<span class="rotate">
+		{{{lang 'nag_bar.nag_one'}}}, {{{lang 'nag_bar.nag_two'}}}, {{{lang 'nag_bar.nag_three'}}}, {{{lang 'nag_bar.nag_four'}}}
+	</span>	
+
+	<div class="black-nav-bar">
+
+		<ul class="black-nav-list-left">
+			<a href="/shop-by-phone">
+				<li class="black-nav-item">
+					<span class="icon icon--phone">
+						<svg class="black-nav-icon">
+							<use xlink:href="#icon-phone-solid"></use>
+						</svg>
+					</span>
+					Shop By Phone
+				</li>
+			</a>
+
+			<a href="/contact-us">
+				<li class="black-nav-item">
+					<span class="icon icon--">
+						<svg class="black-nav-icon">
+							<use xlink:href="#icon-envelope"></use>
+						</svg>
+					</span>
+					Contact Us
+				</li>
+			</a>
+
+			<a href="/store-locator">
+				<li class="black-nav-item">
+					<span class="icon icon--">
+						<svg class="black-nav-icon">
+							<use xlink:href="#icon-location-arrow-solid"></use>
+						</svg>
+					</span>
+					Store Locator
+				</li>
+			</a>
+
+			<a href="/blog">
+				<li class="black-nav-item">
+					<span class="icon icon--">
+						<svg class="black-nav-icon">
+							<use xlink:href="#icon-rss"></use>
+						</svg>
+					</span>
+					Blog
+				</li>
+			</a>
+
+			<a href="/gift-card">
+				<li class="black-nav-item">
+					<span class="icon icon--">
+						<svg class="black-nav-icon">
+							<use xlink:href="#icon-gift-solid"></use>
+						</svg>
+					</span>
+					Gift Cards
+				</li>
+			</a>
+		</ul>
+
+		<ul class="black-nav-list-right">
+			<a href="/cmn">
+				<li class="black-nav-item">
+					<span class="icon icon--CHLogo">
+							<svg class="black-nav-icon">
+						<use xlink:href="#icon-CMN-logo"></use>
+					</svg>
+					</span>
+					Children's Miracle Network
+				</li>
+			</a>
+
+			<a href="/northern-friends">
+				<li class="black-nav-item">
+					<span class="icon icon--plus">
+						<svg class="black-nav-icon">
+							<use xlink:href="#icon-add"></use>
+						</svg>
+					</span>
+					Northern Friends Rewards
+				</li>
+			</a>
+		</ul>
+	</div>
+
+	<ul class="header__main">
+
+
+
+		<div class="mobileMenu-container">
+			<a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
+				<span class="mobileMenu-toggleIcon">Toggle menu</span>
+			</a>
+
+			<a href="#" class="mobileSearch-toggle button button--primary" id="toggle-mobileSearch">
+					<span class="icon icon--search">
+						<svg class="search-icon">
+							<use xlink:href="#icon-search-bold"></use>
+						</svg>
+					</span>
+			</a>
+
+			<div class="header__main-search mobileSearch-input">
+				{{> components/common/quick-search}}
+				<div class="search-dark"></div>
+			</div>
+
+			<div class="header__main-logo">
+				{{> components/common/store-logo}}
+			</div>
+
+			<div class="header-icon-container">
+				<div class="user-signin-container">
+					<a href="#" class="user-signin button button--primary" data-dropdown="my-dropdown">
+						<img class="lazyload" data-src="{{cdn 'webdav:/images/icon_account.png'}}" src="{{cdn 'img/loading.svg'}}" alt="account icon">
+						<p class="account-text">Account</p>
+				</div>
+
+
+				<ul class="dropdown-menu custom-dropdown" id="my-dropdown" data-dropdown-content>
+					<div class="dropdown-arrow"></div>
+					<div class="dropdown-arrow-border"></div>
+					<a href="{{urls.auth.login}}" class="dropdown-menu-link">
+						<li class="dropdown-menu-item">Sign In</li>
+					</a>
+					<a href="{{urls.auth.create_account}}" class="dropdown-menu-link">
+						<li class="dropdown-menu-item">Register</li>
+					</a>
+					<a href="{{urls.auth.login}}" class="dropdown-menu-link">
+						<li class="dropdown-menu-item">Wish List</li>
+					</a>
+					<div class="signin-dark"></div>
+				</ul>
+
+				</a>
+
+
+
+				<div class="user-cart-container">
+					<a class="user-cart button button--primary cart-button" data-dropdown="cart-preview-dropdown" data-options="align:right"
+					 href="{{urls.cart}}#" data-cart-preview>
+						<img class="lazyload header__bag-icon" data-src="{{cdn 'webdav:/images/icon_bag.png'}}" src="{{cdn 'img/loading.svg'}}" alt="bag icon">
+						<div class="cart-count-container">
+							<span class="countPill{{#if cart.items}} countPill--positive{{/if}} cart-quantity">{{cart.quantity}}</span>
+							<span class="navUser-item-cartLabel">{{lang 'common.cart'}}</span>
+						</div>
+					</a>
+					<div class="dropdown-menu cart-dropdown-container cart__header-container" id="cart-preview-dropdown" data-dropdown-content aria-hidden="true">
+						<ul class="dropdown-menu cart-dropdown-menu" id="cart-preview-dropdown" data-dropdown-content>
+							<li class="dropdown-menu-item cart-menu-item">Here's our dropdown content!</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		</div>
+
+		{{{region name="header_bottom"}}}
+
+		<div class="header__nav">
+
+			<div class="navPages-container" id="menu" data-menu>
+				{{> components/common/navigation-menu}}
+			</div>
+
+		</div>
+
+</header>

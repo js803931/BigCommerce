@@ -1,0 +1,422 @@
+* {
+   &:focus,
+   &:focus-within,
+   &:active,
+   &:visited {
+       outline: none;
+   }
+  }
+
+.body {
+    background: #F9F9F9;
+    
+   @include breakpoint("medium") {// 1261px and up
+    margin-bottom: 0px;
+   }
+}
+
+.container {
+    margin: 0 auto;
+    padding-top: 35px;
+    padding: 0px;
+    
+    
+    @include breakpoint("small") {// 801px and up
+        padding: 20px 44px;
+    }
+}
+
+.NFRP__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.NFRP__content-container {
+    background: url('https://www.northernreflections.com/content/images/NFRP-background.png');
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position:center;
+    text-align: center;
+    padding: 35px;
+
+    
+    @include breakpoint("small") {// 551px and up
+        margin-top: 25px;
+    }
+    
+    @include breakpoint("medium") {// 801px and up
+        padding: 86px;
+        padding-bottom: 40px;
+    }
+}
+
+.NFRP__title {
+    color: white;
+    margin-top: 0px;
+    font-size: 25px;
+    font-family: Helvetica, Arial, sans-serif;
+    line-height: 30px;
+    text-align: center;
+
+    
+    @include breakpoint("medium") {// 801px and up
+        font-size: 35px;
+    }
+}
+
+.NFRP__text-container {
+    width: 75%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.NFRP__text {
+    color: white;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 25px;
+    text-align: center;
+
+    
+    @include breakpoint("medium") {// 801px and up
+        font-size: 25px;
+        line-height: 42px;
+    }
+}
+
+.NFRP__btn {
+    color: #FFF;
+    padding: 10px 15px;
+    border: 2px solid #FFF;
+    font-size: 15px;
+    letter-spacing: 2.26px;
+    font-family: Lato;
+    top: 10px;
+
+    &:hover {
+        color: black;
+        border: 2px solid #000;
+    }
+}
+
+.carousel__homepage {
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+.carousel__homepage .page-heading {
+    margin-bottom: 30px;
+    font-family: Lato;
+    font-size: 25px;
+    letter-spacing: 0.5px;
+    line-height: 30px;
+    font-weight: normal;
+}
+
+.carousel__homepage .slick-dots {
+    position: static;
+    
+    @include breakpoint("medium") {// 551px and up
+        display: none;
+    }
+}
+
+.carousel__homepage .slick-dots li.slick-active button::before {
+    background: #000;
+    height: 10px;
+    width: 10px;
+}
+
+.carousel__homepage .slick-dots li button {
+    background: #D8D8D8;
+    border: unset;
+    height: 10px;
+    width: 10px;
+}
+
+.carousel__homepage .slick-prev, 
+.carousel__homepage .slick-next {
+    display: none;
+
+    
+    @include breakpoint("small") {// 551px and up
+        display: inline-block;
+    }
+}
+
+
+.carousel__homepage .productCarousel {
+    margin: 0px;
+}
+
+.carousel__homepage .card-title a {
+    font-family: Helvetica, Arial, sans-serif;
+    color: #000;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    line-height: 30px;
+}
+
+.carousel__homepage .price {
+    font-family: Helvetica, Arial, sans-serif;
+    color: #000;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    line-height: 30px;
+}
+
+
+.NR-description__container {
+    margin: 0 auto;
+    padding: 25px;
+    background-color: #82B9CE;
+    padding-bottom: 40px;
+    padding-top: 5px;
+
+    
+    @include breakpoint("small") {// 801px and up
+        margin-bottom: 0px;
+    }
+
+    
+    @include breakpoint("medium") {// 1261px and up
+        padding: 40px 20px;
+        margin-bottom: 0px;
+    }
+}
+
+.NR-description__title,
+.NR-description__sub-title {
+    font-family: Helvetica, Arial, sans-serif;
+    color: #FFF;
+    text-align: center;
+}
+
+.NR-description__title {
+    font-size: 30px;
+    line-height: 36px;
+
+    
+    @include breakpoint("medium") {
+        font-size: 35px;
+    }
+
+    
+    @include breakpoint("large") {// 1261px and up
+        font-size: 40px;
+    }
+}
+
+.NR-description__sub-title {
+    font-size: 20px;
+    letter-spacing: 0.4px;
+    line-height: 35px;
+    font-family: Helvetica, Arial, sans-serif;
+    margin-top: 20px;
+
+    
+    @include breakpoint("medium") {
+        font-size: 25px;
+    }
+}
+
+.NR-description__text {
+    font-size: 15px;
+    font-family: Helvetica, Arial, sans-serif;
+    color: white;
+    letter-spacing: 0.42px;
+    line-height: 30px;
+
+    
+    @include breakpoint("medium") {
+        font-size: 18px;
+        padding: 40px 35px;
+        letter-spacing: 0.5px;
+        
+    }
+}
+
+.carousel__homepage--testimonials {
+    padding: 40px;
+    text-align: center;
+    letter-spacing: 0.5px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    line-height: 30px;
+    margin: 0 auto;
+    
+    @include breakpoint("medium") {// 801px and up
+        width: 75%;
+    }
+    
+}
+
+.carousel__homepage--testimonials .page-heading {
+    margin-bottom: 15px;
+}
+
+.star-img-container {
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.carousel__homepage .card-figcaption-body {
+    display: none;
+}
+
+.icon-canada {
+    height: 18px;
+    width: 18px;
+    margin-top: 0px !important;
+}
+
+.price-container {
+    display: flex;
+    align-items: center;
+}
+
+.price-container .price {
+    margin-left: 5px;
+}
+
+.carousel__homepage .slick-disabled {
+    opacity: 1;
+}
+
+.carousel__homepage .slick-arrow {
+    background: none;
+    height: 0;
+    display: none!important;
+
+    
+    @include breakpoint("small") {// 801px and up
+        display: flex !important;
+        height: 26px;
+    }
+
+    &:hover {
+        background: unset;
+    }
+}
+
+.carousel__homepage--testimonials .slick-arrow {
+    display: none !important;
+}
+
+
+
+.carousel__homepage .slick-dots li {
+    width: 20px;
+
+    
+    @include breakpoint("medium") {// 1261px and up
+        display: none;
+    }
+}
+
+.carousel__homepage--testimonials .slick-dots li {
+    display: inline-block;
+}
+
+.top-of-page {
+    display: none;
+    
+    @include breakpoint("medium") {// 1261px and up
+        display: none;
+        position: fixed;
+        bottom: 50%;
+        right: 30px;
+        z-index: 99;
+        background-color: #000;
+        color: #FFF;
+        height: 76px;
+        width: 76px;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        z-index: 1;
+    }
+
+    &:hover {
+        background-color: #2D2D2D;
+        color: #FFF;
+    }
+}
+
+.top-of-page-icon {
+    transform: rotate(180deg);
+}
+
+.top-of-page-icon svg {
+    fill: #FFF;
+    stroke: #FFF;
+    stroke-width: 1px;
+}
+
+.card-image {
+    top: unset;
+}
+
+.slick-prev, 
+.slick-next {
+    transform: unset;
+    background: none;
+
+    
+    @include breakpoint("small") {// 551px and up
+        top: 35%;
+    }
+
+    &:hover {
+        background: none;
+    }
+}
+
+.slick-next {
+    transform: scaleX(-1)!important;
+}
+
+.blog__homepage .share-btns {
+    display: none;
+}
+
+.NFRP-banner {
+    max-width: 100%;
+}
+
+.slick-prev__icon img,
+.slick-next__icon img {
+
+    &:hover {
+        background: white;
+        filter: invert(100%);
+    }
+    
+    @include breakpoint("small") {// 551px and up
+        height: 26px;
+    }
+    
+    @include breakpoint("medium") {// 801px and up
+        height: auto;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

@@ -1,0 +1,23 @@
+{{> components/products/filter sort=pagination.category.sort}}
+
+<div class="product-grid__container">
+    <form action="{{urls.compare}}" method='POST' data-product-compare class="product-grid-container">
+        {{#if theme_settings.product_list_display_mode '===' 'grid'}}
+        {{> components/products/grid products=category.products show_compare=category.show_compare
+        theme_settings=theme_settings}}
+        {{else}}
+        {{> components/products/list products=category.products show_compare=category.show_compare
+        theme_settings=theme_settings}}
+        {{/if}}
+
+    </form>
+</div>
+
+<div class="pagination-bottom">
+        {{> components/common/paginator
+            pagination.category
+            product_count=category.count
+            page_total=(ceil (divide category.total_products category.count))
+            products_on_page=theme_settings.categorypage_products_per_page
+        }}
+</div>
